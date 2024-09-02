@@ -1,12 +1,12 @@
+require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
+const dotenv = require("dotenv");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
 
 mongoose
-  .connect(
-    "mongodb+srv://garimabhatt987:garimabhatt987654321@shopease-db.ejt2n.mongodb.net/"
-  )
+  .connect(process.env.URI)
   .then(() => console.log("MongoDB connected"))
   .catch((error) => console.log(error));
 
@@ -24,7 +24,7 @@ app.use(
       "Expires",
       "Pragma",
     ],
-    credentials : true
+    credentials: true,
   })
 );
 
